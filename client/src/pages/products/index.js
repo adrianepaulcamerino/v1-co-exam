@@ -28,5 +28,13 @@ export default {
         loader: () => import('./products-create'),
       }),
     },
+    {
+      exact: true,
+      auth: true,
+      path: '/products/:id/edit',
+      component: Loadable({
+        loader: () => import('./products-update'),
+      }),
+    },
   ],
 };

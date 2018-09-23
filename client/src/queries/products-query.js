@@ -3,7 +3,7 @@ import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import get from 'lodash/get';
 
-const PRODUCT_FRAGMENT = gql`
+export const PRODUCT_FRAGMENT = gql`
   fragment ProductFragment on Product {
     id
     name
@@ -13,17 +13,21 @@ const PRODUCT_FRAGMENT = gql`
   }
 `;
 
-const PRODUCT_QUERY = gql`
+export const PRODUCT_QUERY = gql`
   query product($id: ID!) {
     product(id: $id) {
       id
       ...ProductFragment
+      category {
+        id
+        name
+      }
     }
   }
   ${PRODUCT_FRAGMENT}
 `;
 
-const PRODUCTS_QUERY = gql`
+export const PRODUCTS_QUERY = gql`
   {
     products {
       id
@@ -45,9 +49,9 @@ export const ProductsQuery = ({children}) => {
   );
 };
 
-export const ProductQuery = ({children}) => {
+export const ProductQuery = ({children, variables}) => {
   return (
-    <Query query={PRODUCT_QUERY}>
+    <Query query={PRODUCT_QUERY} variables={variables}>
       {props => children({...props, product: get(props, 'data.product', [])})}
     </Query>
   );

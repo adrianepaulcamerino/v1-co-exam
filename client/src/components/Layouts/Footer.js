@@ -13,7 +13,7 @@ class Footer extends Component {
         <div className="container my-auto">
           <div className="copyright text-center my-auto">
             <span>
-              Copyright &copy; {process.env.APP_NAME || 'Laragym'} 2018
+              Copyright &copy; {process.env.APP_NAME || 'Shopping Cart'} 2018
             </span>
           </div>
         </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {Mutation} from 'react-apollo';
 
+import {PRODUCTS_QUERY} from 'queries/products-query';
+
 const CREATE_PRODUCT = gql`
   mutation create_product($input: ProductInput) {
     create_product(input: $input) {
@@ -26,7 +28,14 @@ const DELETE_PRODUCT = gql`
 
 export const CreateProductMutation = ({children}) => {
   return (
-    <Mutation mutation={CREATE_PRODUCT} refetchQueries={['products']}>
+    <Mutation
+      mutation={CREATE_PRODUCT}
+      refetchQueries={[
+        {
+          query: PRODUCTS_QUERY,
+        },
+      ]}
+    >
       {(create_product, props) => children({create_product, ...props})}
     </Mutation>
   );
@@ -34,7 +43,14 @@ export const CreateProductMutation = ({children}) => {
 
 export const DeleteProductMutation = ({children}) => {
   return (
-    <Mutation mutation={DELETE_PRODUCT} refetchQueries={['products']}>
+    <Mutation
+      mutation={DELETE_PRODUCT}
+      refetchQueries={[
+        {
+          query: PRODUCTS_QUERY,
+        },
+      ]}
+    >
       {(delete_product, props) => children({delete_product, ...props})}
     </Mutation>
   );
@@ -42,7 +58,14 @@ export const DeleteProductMutation = ({children}) => {
 
 export const UpdateProductMutation = ({children}) => {
   return (
-    <Mutation mutation={UPDATE_PRODUCT} refetchQueries={['products']}>
+    <Mutation
+      mutation={UPDATE_PRODUCT}
+      refetchQueries={[
+        {
+          query: PRODUCTS_QUERY,
+        },
+      ]}
+    >
       {(update_product, props) => children({update_product, ...props})}
     </Mutation>
   );
