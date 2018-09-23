@@ -8,61 +8,30 @@ class Sidebar extends Component {
     return (
       <ul className="sidebar navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" to="/dashboard">
             <i className="fas fa-fw fa-home" />
             <span> Dashboard</span>
           </Link>
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/activities">
+          <Link className="nav-link" to="/Categories">
             <i className="fas fa-fw fa-user-clock" />
-            <span> Activities</span>
+            <span> Category</span>
           </Link>
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/attendance">
+          <Link className="nav-link" to="/products">
             <i className="fas fa-fw fa-calendar-alt" />
-            <span> Attendance</span>
+            <span> Products</span>
           </Link>
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/members">
+          <Link className="nav-link" to="/users">
             <i className="fas fa-fw fa-users" />
-            <span> Members</span>
-          </Link>
-        </li>
-
-        {/* <li className="nav-item">
-          <Link className="nav-link" to="/invoices">
-            <i className="fas fa-fw fa-file-invoice-dollar" />
-            <span> Invoices</span>
-          </Link>
-        </li> */}
-        <li className="nav-item">
-          <Link className="nav-link" to="/subscriptions">
-            <i className="fas fa-fw fa-id-card" />
-            <span> Subscriptions</span>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/packages">
-            <i className="fas fa-fw fa-box" />
-            <span> Packages</span>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/billing-cycles">
-            <i className="fas fa-fw fa-clock" />
-            <span> Billing Cycles</span>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/services">
-            <i className="fas fa-fw fa-server" />
-            <span> Services</span>
+            <span> Users</span>
           </Link>
         </li>
       </ul>

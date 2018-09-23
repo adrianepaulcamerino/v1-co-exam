@@ -9,7 +9,7 @@ import Footer from './Footer';
 export default ({children}) => {
   return (
     <React.Fragment>
-      <Helmet titleTemplate="%s | Laragym">
+      <Helmet titleTemplate="%s | E-Commerce Manager">
         <title>Dashboard</title>
       </Helmet>
       <LayoutConsumer>
