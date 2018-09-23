@@ -6,21 +6,42 @@ let products = [
     name: 'Product 1',
     category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4323',
     price: 1.25,
-    image: 'https://placeimg.com/640/480/any'
+    image: 'https://placeimg.com/640/480/tech'
   },
   {
     id: '1f76de53-b2bd-45b8-a5d8-434d4a1eef00',
     name: 'Product 2',
     category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4373',
     price: 1.25,
-    image: 'https://placeimg.com/640/480/any'
+    image: 'https://placeimg.com/640/480/people'
+  },
+  {
+    id: '1a94845b-843e-4b2a-b1f9-b6507dca5323',
+    name: 'Chrome Cast',
+    category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4326',
+    price: 1.25,
+    image: 'https://placeimg.com/640/480/nature'
   },
   {
     id: '1a94845b-843e-4b2a-b1f9-b6507dca4323',
     name: 'Product 3',
     category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4326',
+    price: 20,
+    image: 'https://placeimg.com/640/480/nature'
+  },
+  {
+    id: '1a94845b-843e-4b2a-b1f9-b6507dca5320',
+    name: 'Chrome Cast2',
+    category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4326',
     price: 1.25,
-    image: 'https://placeimg.com/640/480/any'
+    image: 'https://placeimg.com/640/480/nature'
+  },
+  {
+    id: '1a94845b-843e-4b2a-b1f9-b6507dca4444',
+    name: 'Chrome Cast2',
+    category_id: '1a94845b-843e-4b2a-b1f9-b6507dca4326',
+    price: 1.25,
+    image: 'https://placeimg.com/640/480/nature'
   }
 ]
 
@@ -56,6 +77,6 @@ export default {
     })
   },
   destroy(id) {
-    products = products.filter(p => p.id === id)
+    products = products.filter(p => p.id !== id)
   }
 }

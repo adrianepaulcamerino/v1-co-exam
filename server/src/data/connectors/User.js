@@ -64,6 +64,6 @@ export default {
     })
   },
   destroy(id) {
-    USERS = USERS.filter(p => p.id === id)
+    USERS = USERS.filter(p => p.id !== id)
   }
 }

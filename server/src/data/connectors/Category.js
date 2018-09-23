@@ -46,6 +46,6 @@ export default {
     })
   },
   destroy(id) {
-    CATEGORIES = CATEGORIES.filter(p => p.id === id)
+    CATEGORIES = CATEGORIES.filter(p => p.id !== id)
   }
 }
