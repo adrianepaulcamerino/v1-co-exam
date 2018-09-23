@@ -1,7 +1,22 @@
 import React from 'react';
 import notify from 'utils/notify';
+import client from './../client';
+import {LOGIN_FAILED, LOGIN_SUCCESS} from './../messages';
 
-const login = async () => Promise.resolve();
+import gql from 'graphql-tag';
+
+const login = async ({email, password}) => {
+  const response = await client.mutate({
+    variables: {email, password},
+    mutation: gql`
+      mutation login($email: String!, $password: String!) {
+        login(email: $email, password: $password)
+      }
+    `,
+  });
+
+  return response.data.login;
+};
 
 const AuthContext = React.createContext();
 
@@ -21,42 +36,37 @@ class AuthProvider extends React.Component {
   state = __state__();
   login = async (data = {}) => {
     try {
-      const {token} = await login(data);
+      const token = await login(data);
 
       localStorage.setItem('token', token);
 
-      this.setState(
-        {
-          token,
-        },
-        () => {
-          notify({
-            type: 'success',
-            text: 'Successfully logged in!',
-          });
-        }
-      );
+      notify({
+        type: 'success',
+        text: LOGIN_SUCCESS,
+      });
+
+      setTimeout(() => {
+        window.location.replace('/dashboard');
+      });
     } catch (error) {
       notify({
         type: 'error',
-        text: 'Invalid user or password',
+        text: LOGIN_FAILED,
       });
     }
   };
 
   logout = () => {
     localStorage.removeItem('token');
-    this.setState(
-      {
-        token: null,
-      },
-      () => {
-        notify({
-          type: 'success',
-          text: 'Successfully logged out!',
-        });
-      }
-    );
+
+    notify({
+      type: 'success',
+      text: 'Successfully logged out!',
+    });
+
+    setTimeout(() => {
+      window.location.replace('/auth/login');
+    });
   };
 
   render() {

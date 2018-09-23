@@ -23,7 +23,7 @@ export default ({children}) => {
                   <div className="container-fluid position-relative">
                     {children}
                   </div>
-                  {footer && <Footer />}
+                  {footer && <Footer sidebar={sidebar} />}
                 </div>
               </div>
             </React.Fragment>

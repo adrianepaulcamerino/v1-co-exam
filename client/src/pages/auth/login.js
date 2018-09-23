@@ -75,8 +75,8 @@ class Login extends Component {
             </Button>
           </Form>
           <div className="text-center mt-3">
-            <Link to="/auth/forgot" className="d-block small">
-              Forgot Password?
+            <Link to="/" className="d-block small">
+              Go back home
             </Link>
           </div>
         </div>

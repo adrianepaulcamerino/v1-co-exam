@@ -29,7 +29,15 @@ app.use(
   bodyParser.json(),
   graphqlExpress(req => ({
     schema,
-    context: { user: req.user }
+    context: { user: req.user },
+    formatError(err) {
+      return {
+        message: err.message,
+        code: err.originalError && err.originalError.code,
+        locations: err.locations,
+        path: err.path
+      }
+    }
   }))
 )
 

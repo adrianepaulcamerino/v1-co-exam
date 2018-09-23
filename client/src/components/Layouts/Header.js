@@ -41,7 +41,7 @@ class Header extends React.Component {
       <div>
         <Navbar color="dark" dark expand="md">
           <Link className="navbar-brand" to="/">
-            {process.env.APP_NAME || 'LaraGym'}
+            E-Commerce
           </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -51,20 +51,19 @@ class Header extends React.Component {
                   <i className="fas fa-user-circle fa-fw" />
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <Link className="dropdown-item" to="/account">
-                    Account
-                  </Link>
-                  {/* <Link className="dropdown-item" to="/settings">
-                    Settings
-                  </Link> */}
-                  <DropdownItem divider />
-                  <Link
-                    onClick={this.logout}
-                    className="dropdown-item"
-                    to="/auth/login"
-                  >
-                    Logout
-                  </Link>
+                  {this.props.isAuth ? (
+                    <Link
+                      onClick={this.logout}
+                      className="dropdown-item"
+                      to="/auth/login"
+                    >
+                      Logout
+                    </Link>
+                  ) : (
+                    <Link className="dropdown-item" to="/auth/login">
+                      Login
+                    </Link>
+                  )}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

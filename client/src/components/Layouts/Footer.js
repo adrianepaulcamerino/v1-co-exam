@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
-class Footer extends Component {
-  state = {};
+import cx from 'classnames';
 
+class Footer extends Component {
   render() {
     return (
-      <footer className="sticky-footer">
+      <footer
+        className={cx('sticky-footer', {
+          ['sticky-footer--expand']: this.props.sidebar === false,
+        })}
+      >
         <div className="container my-auto">
           <div className="copyright text-center my-auto">
             <span>

@@ -1,21 +1,23 @@
 import React from 'react';
 import Loadable from 'components/Loadable';
-import {StaticLayout} from 'components/Layouts';
+import {PrivateLayout} from 'components/Layouts';
 
 import renderRoutes from './../routes';
 
 export default {
   exact: false,
-  path: '/',
+  auth: true,
+  path: '/products',
   component: ({routes}) => {
-    return <StaticLayout>{renderRoutes(routes)}</StaticLayout>;
+    return <PrivateLayout>{renderRoutes(routes)}</PrivateLayout>;
   },
   routes: [
     {
       exact: true,
-      path: '/',
+      auth: true,
+      path: '/products',
       component: Loadable({
-        loader: () => import('./home'),
+        loader: () => import('./products'),
       }),
     },
   ],

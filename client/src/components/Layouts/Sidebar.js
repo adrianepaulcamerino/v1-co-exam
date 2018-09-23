@@ -15,7 +15,7 @@ class Sidebar extends Component {
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/Categories">
+          <Link className="nav-link" to="/categories">
             <i className="fas fa-fw fa-user-clock" />
             <span> Category</span>
           </Link>
