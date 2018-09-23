@@ -7,12 +7,12 @@ import products from './products';
 import categories from './categories';
 
 const routes = [
-  home,
   dashboard,
   categories,
   products,
   users,
   auth,
+  home,
   {
     path: '/404',
     component: NotFound,

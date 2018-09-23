@@ -6,7 +6,7 @@ import renderRoutes from './../routes';
 
 export default {
   exact: false,
-  auth: false,
+  auth: true,
   path: '/dashboard',
   component: ({routes}) => {
     return <PrivateLayout>{renderRoutes(routes)}</PrivateLayout>;

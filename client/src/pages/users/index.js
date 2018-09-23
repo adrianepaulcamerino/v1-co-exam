@@ -17,7 +17,7 @@ export default {
       auth: true,
       path: '/users',
       component: Loadable({
-        loader: () => import('./dashboard'),
+        loader: () => import('./users'),
       }),
     },
   ],
