@@ -50,8 +50,12 @@ class Header extends React.Component {
                 <DropdownToggle nav>
                   <i className="fas fa-user-circle fa-fw" />
                 </DropdownToggle>
-                <DropdownMenu right>
-                  {this.props.isAuth ? (
+
+                {this.props.isAuth ? (
+                  <DropdownMenu right>
+                    <Link className="dropdown-item" to="/dashboard">
+                      Dashboard
+                    </Link>
                     <Link
                       onClick={this.logout}
                       className="dropdown-item"
@@ -59,12 +63,14 @@ class Header extends React.Component {
                     >
                       Logout
                     </Link>
-                  ) : (
+                  </DropdownMenu>
+                ) : (
+                  <DropdownMenu right>
                     <Link className="dropdown-item" to="/auth/login">
                       Login
                     </Link>
-                  )}
-                </DropdownMenu>
+                  </DropdownMenu>
+                )}
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
