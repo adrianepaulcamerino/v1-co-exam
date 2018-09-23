@@ -5,7 +5,7 @@ import { PERMISSION_LEVEL, UNAUTHORIZED } from './constants'
 async function update_product(_, { id, input }, context) {
   if (context.user && context.user.permission_level === PERMISSION_LEVEL) {
     Product.update(id, input)
-    return Product.find(id)
+    return Product.findOne(id)
   }
 
   throw new Error(UNAUTHORIZED)
@@ -14,7 +14,7 @@ async function update_product(_, { id, input }, context) {
 async function create_product(_, { input }, context) {
   if (context.user && context.user.permission_level === PERMISSION_LEVEL) {
     const id = Product.create(input)
-    return Product.find(id)
+    return Product.findOne(id)
   }
 
   throw new Error(UNAUTHORIZED)

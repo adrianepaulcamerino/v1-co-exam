@@ -13,7 +13,7 @@ async function update_user(_, { id, input }, context) {
 
     User.update(id, data)
 
-    return User.find(id)
+    return User.findOne(id)
   }
 
   throw new Error(UNAUTHORIZED)

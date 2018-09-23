@@ -5,7 +5,7 @@ import { PERMISSION_LEVEL, UNAUTHORIZED } from './constants'
 async function update_category(_, { id, input }, context) {
   if (context.user && context.user.permission_level === PERMISSION_LEVEL) {
     Category.update(id, input)
-    return Category.find(id)
+    return Category.findOne(id)
   }
 
   throw new Error(UNAUTHORIZED)
@@ -14,7 +14,7 @@ async function update_category(_, { id, input }, context) {
 async function create_category(_, { input }, context) {
   if (context.user && context.user.permission_level === PERMISSION_LEVEL) {
     const id = Category.create(input)
-    return Category.find(id)
+    return Category.findOne(id)
   }
 
   throw new Error(UNAUTHORIZED)
