@@ -15,6 +15,7 @@ export default class Confirm extends React.Component {
   static defaultProps = {
     isLoading: false,
     onSubmit: () => {},
+    onAfterSubmit: () => {},
   };
 
   state = {...INITIAL_STATE};

@@ -20,5 +20,13 @@ export default {
         loader: () => import('./products'),
       }),
     },
+    {
+      exact: true,
+      auth: true,
+      path: '/products/create',
+      component: Loadable({
+        loader: () => import('./products-create'),
+      }),
+    },
   ],
 };
